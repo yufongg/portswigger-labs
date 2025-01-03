@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<body> 
+    <h1>?</h1>
+    <p id="page"></p>
+</body>
+
+
+
+<script>
+function escapeHTML(html) {
+    return html.replace('<', '&lt;').replace('>', '&gt;');
+}
+var payload = "<script>a<\/script>";
+console.log(escapeHTML(payload));
+// var xmlhttp = new XMLHttpRequest();
+// var url = 'http://127.0.0.1:8000/data.json';
+
+// xmlhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200){
+//         // console.log(this.response);
+//         // console.log(typeof(this.response));
+//         var myObj = JSON.parse(this.response);
+//         console.log(myObj)
+//         console.log(typeof(myObj));
+//         document.getElementById('page').innerText = myObj.searchTerm;
+//     }
+// }
+
+// xmlhttp.open("GET", url, true);
+// xmlhttp.send();
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="./angular_1-7-7.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<p id="test"></p>
+		{{ firstName }}
+		{{ 1+1 }}
+		<!-- {{ $destroy.constructor('alert()')() }} -->
+		
+		<!-- {{ $eval.constructor('alert()')() }} -->
+	</body>
+	<script>
+		function test(){
+			console.log("Hello World");
+		}
+
+		console.log(test.constructor);
+
+		let mySecondFunction = test.constructor('console.log("Hello Second World")');
+		mySecondFunction();
+
+		let myThirdFunction = Function('console.log("Hello Third World")');
+		myThirdFunction();
+
+
+
+		var app = angular.module('myApp', []);
+		app.controller('myCtrl', function($scope) {
+			$scope.firstName = "Adam";
+		});
+
+	</script>
+</html>

