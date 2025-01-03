@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-# lab_url: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-html-context-with-all-standard-tags-blocked
+# lab_url: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-some-svg-markup-allowed
 # author: 0xyf
 
 
