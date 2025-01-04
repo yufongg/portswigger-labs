@@ -15,8 +15,6 @@ class SQLi14:
         self.url = f"https://{self.lab_id}.web-security-academy.net"
         self.login_url = f"{self.url}/login"
         self.proxies = {"https": "http://127.0.0.1:8080"}
-        self.username = "administrator"
-        self.table = "users"
 
     def execute_request(self, payload):
         cookies = {"TrackingId": payload}
