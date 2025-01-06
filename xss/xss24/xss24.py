@@ -2,7 +2,6 @@ import requests
 from urllib3.exceptions import InsecureRequestWarning
 from time import sleep
 from bs4 import BeautifulSoup
-from string import Template
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
@@ -19,7 +18,6 @@ class XSS24:
         self.post_id = 6
         self.csrf_url = f"{self.url}/post?postId={self.post_id}"
         self.vuln_url = f"{self.url}/post/comment"
-        self.collab_url = f"https://r912u17ii1ioipcvcg0m7jhtckig679vy.oastify.com"
         self.login_url = f"{self.url}/login"
 
     def get_csrf_token(self):
