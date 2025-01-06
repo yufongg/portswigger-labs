@@ -1,8 +1,6 @@
 import requests
 from urllib3.exceptions import InsecureRequestWarning
 from time import sleep
-from concurrent.futures import ThreadPoolExecutor
-from bs4 import BeautifulSoup
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
