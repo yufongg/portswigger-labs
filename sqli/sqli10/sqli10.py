@@ -78,7 +78,7 @@ class SQLi10:
         )
         r = self.execute_request(payload)
         if r.status_code == 200:
-            columns = self.parse(r)
+            columns = sorted(self.parse(r))
             self.password_col, self.username_col, self.email_col = columns
             print(f"[*] columns: {columns}")
 

