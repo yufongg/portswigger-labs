@@ -7,7 +7,7 @@ import urllib
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-# lab_url: https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions/lab-samesite-lax-bypass-via-method-override
+# lab_url: https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions/lab-samesite-strict-bypass-via-client-side-redirect
 # author: 0xyf
 
 
