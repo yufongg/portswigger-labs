@@ -1,3 +1,7 @@
+# Purpose
+
+run script to solve portswigger lab
+
 # SQLi
 
 
