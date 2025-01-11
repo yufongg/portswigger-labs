@@ -2,7 +2,6 @@ import requests
 from urllib3.exceptions import InsecureRequestWarning
 from time import sleep
 from bs4 import BeautifulSoup
-import urllib
 
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)

