@@ -18,7 +18,6 @@ class CORS1:
         self.lab_id = "0a3100fa04d432318027447d005900f8"
         self.proxies = {"https": "http://127.0.0.1:8080"}
 
-        self.collab_url = "https://onfz8ylfwywlwmqsqdejlgvqqhwdk7bv0.oastify.com"
         self.url = f"https://{self.lab_id}.web-security-academy.net"
         self.chg_email_url = f"{self.url}/my-account/change-email"
         self.api_url = f"{self.url}/accountDetails"
