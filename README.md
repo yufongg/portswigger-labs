@@ -82,6 +82,6 @@ simply change lab_id and run script to solve.
 # CORS
 
 
-| Title                                                                                                                           | Difficulty | Vulnerabilities | Code                                                                                  |
-|---------------------------------------------------------------------------------------------------------------------------------|------------|-----------------|---------------------------------------------------------------------------------------|
-| [CORS vulnerability with basic origin reflection](https://portswigger.net/web-security/cors/lab-basic-origin-reflection-attack) | Apprentice | CORS            | [cors1.py](https://github.com/yufongg/portswigger-labs/blob/main/cors/cors1/cors1.py) |
+| Title                                                                                                                           | Difficulty | Vulnerabilities | Code                                                                                                                                                                               |
+|---------------------------------------------------------------------------------------------------------------------------------|------------|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [CORS vulnerability with basic origin reflection](https://portswigger.net/web-security/cors/lab-basic-origin-reflection-attack) | Apprentice | CORS            | [cors1.py](https://github.com/yufongg/portswigger-labs/blob/main/cors/cors1/cors1.py)<br>[cors1_2.py](https://github.com/yufongg/portswigger-labs/blob/main/cors/cors1/cors1_2.py) |
