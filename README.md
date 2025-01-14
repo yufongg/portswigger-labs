@@ -1,6 +1,10 @@
 # Purpose
 
-run script to solve portswigger lab
+run script to solve portswigger lab. 
+
+# Usage
+
+simply change lab_id and run script to solve.
 
 # SQLi
 
@@ -73,3 +77,11 @@ run script to solve portswigger lab
 | [SameSite Lax bypass via cookie refresh](https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions/lab-samesite-strict-bypass-via-cookie-refresh)                                  | Practitioner | CSRF<br>SSO                   | [csrf10.py](https://github.com/yufongg/portswigger-labs/blob/main/csrf/csrf10/csrf10.py)                                                                                           |
 | [CSRF where Referer validation depends on header being present](https://portswigger.net/web-security/csrf/bypassing-referer-based-defenses/lab-referer-validation-depends-on-header-being-present) | Practitioner | CSRF                          | [csrf11.py](https://github.com/yufongg/portswigger-labs/blob/main/csrf/csrf11/csrf11.py)                                                                                           |
 | [CSRF with broken Referer validation](https://portswigger.net/web-security/csrf/bypassing-referer-based-defenses/lab-referer-validation-broken)                                                    | Practitioner | CSRF                          | [csrf12.py](https://github.com/yufongg/portswigger-labs/blob/main/csrf/csrf12/csrf12.py)                                                                                           |
+
+
+# CORS
+
+
+| Title                                                                                                                           | Difficulty | Vulnerabilities | Code                                                                                  |
+|---------------------------------------------------------------------------------------------------------------------------------|------------|-----------------|---------------------------------------------------------------------------------------|
+| [CORS vulnerability with basic origin reflection](https://portswigger.net/web-security/cors/lab-basic-origin-reflection-attack) | Apprentice | CORS            | [cors1.py](https://github.com/yufongg/portswigger-labs/blob/main/cors/cors1/cors1.py) |

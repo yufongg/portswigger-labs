@@ -17,7 +17,7 @@ requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 class CSRF9:
     def __init__(self):
-        self.lab_id = "0a8a00da0450ed95826ad4ee000900be"
+        self.lab_id = "0a8e00f80454a62aa8dfb01b00b3009c"
         self.proxies = {"https": "http://127.0.0.1:8080"}
 
         self.url = f"https://{self.lab_id}.web-security-academy.net"
