@@ -21,12 +21,6 @@ class DOMBased1:
         soup = BeautifulSoup(r.text, "html.parser")
         self.exploit_srv_url = soup.find("a", id="exploit-link").get("href")
 
-    def get_submit_url(self):
-        r = requests.get(self.url)
-        soup = BeautifulSoup(r.text, "html.parser")
-        submit_path = soup.find("button", id="submitSolution").get("path")
-        self.submit_url = f"{self.url}{submit_path}"
-
     def execute_request(self, data):
         r = requests.post(
             f"{self.exploit_srv_url}",
