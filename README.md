@@ -86,6 +86,7 @@ simply change lab_id and run script to solve.
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | [DOM XSS using web messages](https://portswigger.net/web-security/dom-based/controlling-the-web-message-source/lab-dom-xss-using-web-messages)                                           | Practitioner | DOM-Based       | [dom-based1.py](https://github.com/yufongg/portswigger-labs/blob/main/dom-based/dom-based1/dom-based1.py) |
 | [DOM XSS using web messages and a JavaScript URL](https://portswigger.net/web-security/dom-based/controlling-the-web-message-source/lab-dom-xss-using-web-messages-and-a-javascript-url) | Practitioner | DOM-Based       | [dom-based2.py](https://github.com/yufongg/portswigger-labs/blob/main/dom-based/dom-based2/dom-based2.py) |
+| [DOM XSS using web messages and JSON.parse](https://portswigger.net/web-security/dom-based/controlling-the-web-message-source/lab-dom-xss-using-web-messages-and-json-parse)             | Practitioner | DOM-Based       | [dom-based3.py](https://github.com/yufongg/portswigger-labs/blob/main/dom-based/dom-based3/dom-based3.py) |
 
 # CORS
 
