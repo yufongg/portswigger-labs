@@ -1,10 +1,10 @@
 # Purpose
 
-run script to solve portswigger lab. 
+Run script to solve portswigger lab. Also for users to figure out why is their payload working/not working
 
 # Usage
 
-simply change lab_id and run script to solve.
+Change lab_id and run script to solve.
 
 # SQLi
 
