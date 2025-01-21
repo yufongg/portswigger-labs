@@ -1,6 +1,6 @@
 # Purpose
 
-Run script to solve portswigger lab. Also for users to figure out why is their payload working/not working
+Run script to solve portswigger lab and for users to debug their payload.
 
 # Usage
 
