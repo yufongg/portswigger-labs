@@ -6,8 +6,7 @@ Run script to solve portswigger lab and for users to debug their payload.
 
 Change lab_id and run script to solve.
 
-# SQLi
-
+# SQL Injection (SQLi)
 
 | Title                                                                                                                                                                                                          | Difficulty   | Vulnerabilities | Code                                                                                                                                                                                     |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -30,8 +29,7 @@ Change lab_id and run script to solve.
 | [Blind SQL injection with out-of-band data exfiltration](https://portswigger.net/web-security/sql-injection/blind/lab-out-of-band-data-exfiltration)                                                           | Practitioner | SQL Injection   | [sqli17.py](https://github.com/yufongg/portswigger-labs/blob/main/sqli/sqli17/sqli17.py)                                                                                                 |
 | [SQL injection with filter bypass via XML encoding](https://portswigger.net/web-security/sql-injection/lab-sql-injection-with-filter-bypass-via-xml-encoding)                                                  | Practitioner | SQL Injection   | [sqli18.py](https://github.com/yufongg/portswigger-labs/blob/main/sqli/sqli18/sqli18.py)                                                                                                 |
 
-#  XSS
-
+# Cross-site Scripting (XSS)
 | Title                                                                                                                                                                                                                                                                                           | Difficulty   | Vulnerabilities | Code                                                                                                                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Reflected XSS into HTML context with nothing encoded](https://portswigger.net/web-security/cross-site-scripting/reflected/lab-html-context-nothing-encoded)                                                                                                                                    | Apprentice   | XSS             | [xss1.py](https://github.com/yufongg/portswigger-labs/blob/main/xss/xss1/xss1.py)                                                                                                |
@@ -59,8 +57,7 @@ Change lab_id and run script to solve.
 | [Exploiting cross-site scripting to capture passwords](https://portswigger.net/web-security/cross-site-scripting/exploiting/lab-capturing-passwords)                                                                                                                                            | Practitioner | XSS<br>CSRF     | [xss23.py](https://github.com/yufongg/portswigger-labs/blob/main/xss/xss23/xss23.py)<br>[xss23_2.py](https://github.com/yufongg/portswigger-labs/blob/main/xss/xss23/xss23_2.py) |
 | [Exploiting XSS to bypass CSRF defenses](https://portswigger.net/web-security/cross-site-scripting/exploiting/lab-perform-csrf)                                                                                                                                                                 | Practitioner | XSS<br>CSRF     | [xss24.py](https://github.com/yufongg/portswigger-labs/blob/main/xss/xss24/xss24.py)                                                                                             |
 
-# CSRF
-
+# Cross-site Request Forgery (CSRF)
 
 | Title9                                                                                                                                                                                             | Difficulty   | Vulnerabilities               | Code                                                                                                                                                                               |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -90,11 +87,17 @@ Change lab_id and run script to solve.
 | [DOM-based open redirection](https://portswigger.net/web-security/dom-based/open-redirection/lab-dom-open-redirection)                                                                   | Practitioner | DOM-Based       | [dom-based4.py](https://github.com/yufongg/portswigger-labs/blob/main/dom-based/dom-based4/dom-based4.py) |
 | [DOM-based cookie manipulation](https://portswigger.net/web-security/dom-based/cookie-manipulation/lab-dom-cookie-manipulation)                                                          | Practitioner | DOM-Based       | [dom-based5.py](https://github.com/yufongg/portswigger-labs/blob/main/dom-based/dom-based5/dom-based5.py) |
 
-# CORS
-
+# Cross-origin Resource Sharing (CORS)
 
 | Title                                                                                                                           | Difficulty   | Vulnerabilities | Code                                                                                                                                                                               |
 |---------------------------------------------------------------------------------------------------------------------------------|--------------|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [CORS vulnerability with basic origin reflection](https://portswigger.net/web-security/cors/lab-basic-origin-reflection-attack) | Apprentice   | CORS            | [cors1.py](https://github.com/yufongg/portswigger-labs/blob/main/cors/cors1/cors1.py)<br>[cors1_2.py](https://github.com/yufongg/portswigger-labs/blob/main/cors/cors1/cors1_2.py) |
 | [CORS vulnerability with trusted null origin](https://portswigger.net/web-security/cors/lab-null-origin-whitelisted-attack)     | Apprentice   | CORS            | [cors2.py](https://github.com/yufongg/portswigger-labs/blob/main/cors/cors2/cors2.py)                                                                                              |
 | [CORS vulnerability with trusted insecure protocols](https://portswigger.net/web-security/cors/lab-breaking-https-attack)       | Practitioner | CORS            | [cors3.py](https://github.com/yufongg/portswigger-labs/blob/main/cors/cors3/cors3.py)<br>[cors3_2.py](https://github.com/yufongg/portswigger-labs/blob/main/cors/cors3/cors3_2.py) |
+
+# XML External Entity (XXE) Injection
+
+| Title                                                                                                                                     | Difficulty | Vulnerabilities | Code                                                                              |
+|-------------------------------------------------------------------------------------------------------------------------------------------|------------|-----------------|-----------------------------------------------------------------------------------|
+| [Exploiting XXE using external entities to retrieve files](https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-retrieve-files) | Apprentice | XXE             | [xxe1.py](https://github.com/yufongg/portswigger-labs/blob/main/xxe/xxe1/xxe1.py) |
+| [Exploiting XXE to perform SSRF attacks](https://portswigger.net/web-security/xxe/lab-exploiting-xxe-to-perform-ssrf)                     | Apprentice | XXE<br>SSRF     | [xxe2.py](https://github.com/yufongg/portswigger-labs/blob/main/xxe/xxe2/xxe2.py) |
