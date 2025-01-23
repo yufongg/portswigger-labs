@@ -1,3 +1,16 @@
+# TOC
+
+- [Purpose](#purpose)
+- [Usage](#usage)
+- [SQL Injection (SQLi)](#sql-injection--sqli-)
+- [Cross-site Scripting (XSS)](#cross-site-scripting--xss-)
+- [Cross-site Request Forgery (CSRF)](#cross-site-request-forgery--csrf-)
+- [DOM-Based Vulnerabilities](#dom-based-vulnerabilities)
+- [Cross-origin Resource Sharing (CORS)](#cross-origin-resource-sharing--cors-)
+- [XML External Entity (XXE) Injection](#xml-external-entity--xxe--injection)
+
+
+
 # Purpose
 
 Run script to solve portswigger lab and for users to debug their payload.
