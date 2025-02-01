@@ -9,6 +9,7 @@ requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 # lab_url: https://portswigger.net/web-security/sql-injection/blind/lab-time-delays-info-retrieval
 # db: PostgreSQL
 # author: 0xyf
+# using ' AND
 
 
 class SQLi15:
